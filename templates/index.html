@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Movie Recommender</title>
+
+  <!-- Intro animation styles -->
+  <link rel="stylesheet" href="/static/intro/intro.css">
+
+  <!-- Main app styles -->
+  <link rel="stylesheet" href="/static/style.css">
+
+  <!-- Lock scroll only during intro -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("intro-active");
+    });
+  </script>
+</head>
+
+<body>
+
+<!-- ================= INTRO ================= -->
+<div id="container">
+  {% include 'intro/intro.html' %}
+</div>
+
+<!-- ================= APP ================= -->
+<div id="app" class="hidden">
+  <header>
+    <h1>🎬 Movie Recommender</h1>
+  </header>
+
+  <section class="search">
+    <input id="movie" placeholder="Movie title">
+    <input id="votes" type="number" value="100">
+    <button onclick="search()">Single</button>
+  </section>
+
+  <section class="profile">
+    <input id="profileInput" placeholder="Add to profile">
+    <button onclick="addProfile()">Add</button>
+    <div id="profileList"></div>
+    <button onclick="profileRecommend()">Profile Recommend</button>
+  </section>
+
+  <section id="results" class="grid"></section>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="/static/intro/intro.js"></script>
+<script src="/static/app.js"></script>
+
+</body>
+</html>
